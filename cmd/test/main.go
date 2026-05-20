@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"strconv"
 
-	"github.com/chaindead/telegram-mcp/internal/tg"
+	"github.com/aogoro/telegram-mcp/internal/tg"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"

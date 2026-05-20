@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
+      - name: Verify all packages compile
+        run: go build ./...
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
@@ -29,12 +31,3 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_AUTH_TOKEN }}
-      - name: Publish to npm
-        uses: evg4b/goreleaser-npm-publisher-action@v1
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          prefix: '@chaindead'
-          description: Telegram MCP server with API integration for accessing user data, managing dialogs (chats, channels, groups), retrieving messages, and handling read status.
-          files: |-
-            LICENSE
-            README.md

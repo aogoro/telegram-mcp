@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/chaindead/telegram-mcp/internal/tg"
+	"github.com/aogoro/telegram-mcp/internal/tg"
 
 	"github.com/rs/zerolog/log"
 	"github.com/urfave/cli/v3"

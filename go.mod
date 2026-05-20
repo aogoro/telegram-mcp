@@ -1,4 +1,4 @@
-module github.com/chaindead/telegram-mcp
+module github.com/aogoro/telegram-mcp
 
 go 1.24
 
