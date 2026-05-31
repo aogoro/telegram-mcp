@@ -112,6 +112,16 @@ func serve(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("register send tool: %w", err)
 	}
 
+	err = server.RegisterTool("tg_send_photo", "Send a photo/image to dialog (inline preview)", client.SendPhoto)
+	if err != nil {
+		return fmt.Errorf("register send_photo tool: %w", err)
+	}
+
+	err = server.RegisterTool("tg_send_file", "Send a file/document to dialog (exact bytes)", client.SendFile)
+	if err != nil {
+		return fmt.Errorf("register send_file tool: %w", err)
+	}
+
 	err = server.RegisterTool("tg_read", "Mark dialog messages as read", client.ReadHistory)
 	if err != nil {
 		return fmt.Errorf("register read tool: %w", err)
