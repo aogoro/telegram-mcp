@@ -16,6 +16,7 @@ The server is a bridge between the Telegram API and the AI assistants and is bas
 - **`tg_draft`** — saves draft messages (renamed from upstream's `tg_send`)
 - **`reply_to`** — optional parameter for `tg_send` to reply to a specific message
 - **Proxy fix** — `auth` command now respects `ALL_PROXY` / proxy environment variables
+- **`tg_send_photo`** / **`tg_send_file`** — send images (inline preview) and files (documents, exact bytes) to any dialog; both support optional `caption` and `reply_to`
 
 ## Capabilities
 
@@ -25,6 +26,8 @@ The server is a bridge between the Telegram API and the AI assistants and is bas
 - [x] Retrieve messages from specific dialog (`tool: tg_dialog`)
 - [x] Send messages to any dialog (`tool: tg_send`) — supports `reply_to` parameter
 - [x] Save draft messages to any dialog (`tool: tg_draft`)
+- [x] Send a photo/image to any dialog, inline preview (`tool: tg_send_photo`)
+- [x] Send a file/document to any dialog, exact bytes (`tool: tg_send_file`)
 
 ## Installation
 
