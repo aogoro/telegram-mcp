@@ -127,6 +127,16 @@ func serve(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("register read tool: %w", err)
 	}
 
+	// readOnlyHint lets clients (Claude Code plan mode) run read tools without
+	// confirmation. Mutating tools (tg_draft, tg_send*) stay unannotated;
+	// tg_read mutates read-status server-side, so it is not marked either.
+	readOnly := true
+	for _, name := range []string{"tg_me", "tg_dialogs", "tg_dialog"} {
+		if err := server.SetToolAnnotations(name, &mcp.ToolAnnotations{ReadOnlyHint: &readOnly}); err != nil {
+			return fmt.Errorf("set %s annotations: %w", name, err)
+		}
+	}
+
 	if err := server.Serve(); err != nil {
 		return fmt.Errorf("serve: %w", err)
 	}

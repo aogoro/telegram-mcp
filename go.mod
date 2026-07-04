@@ -2,6 +2,9 @@ module github.com/aogoro/telegram-mcp
 
 go 1.24
 
+// Local patched copy: adds MCP tool annotations (readOnlyHint) missing upstream.
+replace github.com/metoro-io/mcp-golang => ./third_party/mcp-golang
+
 require (
 	github.com/gotd/td v0.121.0
 	github.com/invopop/jsonschema v0.12.0
